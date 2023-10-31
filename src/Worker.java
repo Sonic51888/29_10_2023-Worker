@@ -1,21 +1,17 @@
-public class Worker {
+public class Worker implements OnTaskDoneListener, OnTaskErrorListener {
+
+    private OnTaskDoneListener callback;
+    private OnTaskErrorListener errorCallback;
+
     public Worker(OnTaskDoneListener callback, OnTaskErrorListener errorCallback) {
         this.callback = callback;
         this.errorCallback = errorCallback;
     }
 
-    @FunctionalInterface
-    public interface OnTaskDoneListener {
-        void onDone(String result);
-    }
+    @Override
+    public void onDone(String result) {
 
-    @FunctionalInterface
-    public interface OnTaskErrorListener {
-        void onError(String resilt);
     }
-
-    private OnTaskDoneListener callback;
-    private OnTaskErrorListener errorCallback;
 
     public void start() {
         for (int i = 0; i < 100; i++) {
@@ -26,4 +22,10 @@ public class Worker {
             }
         }
     }
+
+    @Override
+    public void onError(String result) {
+    }
 }
+
+
