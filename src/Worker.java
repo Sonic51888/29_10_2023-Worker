@@ -1,4 +1,4 @@
-public class Worker implements OnTaskDoneListener, OnTaskErrorListener {
+public class Worker  {
 
     private OnTaskDoneListener callback;
     private OnTaskErrorListener errorCallback;
